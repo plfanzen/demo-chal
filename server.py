@@ -14,7 +14,7 @@ def handle_client(client_socket, address):
         client_socket.sendall(b"What's your name?\n")
         
         # Receive name (up to 1024 bytes)
-        name = client_socket.recv(1024).decode('utf-8').strip()
+        name = client_socket.recv(1024).decode('utf-8', errors='replace').strip()
         
         if name:
             # Send greeting
