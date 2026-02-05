@@ -32,6 +32,7 @@ def handle_client(client_socket, address):
     except Exception as e:
         print(f"[-] Error handling client {address}: {e}")
     finally:
+        client_socket.shutdown(socket.SHUT_WR)
         client_socket.close()
 
 
